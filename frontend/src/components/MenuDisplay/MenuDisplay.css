@@ -1,0 +1,11 @@
+.menu-display{
+    margin: 30px auto;
+    animation: fadeIn 2s;
+}
+
+.menu-display-list{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    row-gap: 24x;
+}
