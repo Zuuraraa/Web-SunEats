@@ -25,17 +25,17 @@ const Footer = () => {
             <ul className='social-links'>
                 <li>
                     <img src={assets.icon_facebook} alt="" />
-                    <span>Facebook</span>
+                    <span>SunEatsOfficial</span>
                 </li>
 
                 <li>
                     <img src={assets.icon_instagram} alt="" />
-                    <span>Instagram</span>
+                    <span>@SunEats</span>
                 </li>
 
                 <li>
                     <img src={assets.icon_tiktok} alt="" />
-                    <span>Tiktok</span>
+                    <span>@EatWithSunEats</span>
                 </li>
             </ul>
         </div>

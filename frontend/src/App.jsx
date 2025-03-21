@@ -7,6 +7,9 @@ import CheckOut from './pages/CheckOut/CheckOut'
 import Menu from'./pages/Menu/Menu'
 import Footer from './components/Footer/Footer'
 import About from './pages/About/About'
+import Contact from './pages/Contact/Contact'
+import Profile from './pages/Profile/Profile'
+import MenuDetail from './pages/MenuDetail/MenuDetail'
 
 const App = () => {
   return (
@@ -19,6 +22,9 @@ const App = () => {
           <Route path='/Checkout' element={<CheckOut/>}/>
           <Route path='/Menu' element={<Menu/>}/>
           <Route path='/About' element={<About/>}/>
+          <Route path='/Contact' element={<Contact/>}/>
+          <Route path='/Profile' element={<Profile/>}/>
+          <Route path='/Menu/:MenuId' element={<MenuDetail/>}/>
         </Routes>
       </div>
       <Footer/>

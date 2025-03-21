@@ -3,6 +3,7 @@ import './Menu.css'
 import ExploreMenu from '../../components/ExploreMenu/ExploreMenu'
 import MenuDisplay from '../../components/MenuDisplay/MenuDisplay';
 
+
 const Menu = () => {
 
   const [category,setcategory] = useState("All");
