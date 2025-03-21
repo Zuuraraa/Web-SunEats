@@ -10,6 +10,7 @@ import About from './pages/About/About'
 import Contact from './pages/Contact/Contact'
 import Profile from './pages/Profile/Profile'
 import MenuDetail from './pages/MenuDetail/MenuDetail'
+import MyOrder from './pages/MyOrder/MyOrder'
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
           <Route path='/Cart' element={<Cart/>}/>
           <Route path='/Checkout' element={<CheckOut/>}/>
           <Route path='/Menu' element={<Menu/>}/>
+          <Route path='/MyOrder' element={<MyOrder/>}/>
           <Route path='/About' element={<About/>}/>
           <Route path='/Contact' element={<Contact/>}/>
           <Route path='/Profile' element={<Profile/>}/>
