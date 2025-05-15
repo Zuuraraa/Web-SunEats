@@ -9,11 +9,54 @@ const assets = {
     keranjang: '/src/assets/Keranjang.png',
     search: '/src/assets/Search.png',
     user: '/src/assets/User.png',
+    trash: '/src/assets/trash.png',
 
     icon_facebook: '/src/assets/Icon_facebook.png',
     icon_instagram: '/src/assets/Icon_instagram.png',
     icon_tiktok: '/src/assets/Icon_tiktok.png',
 
+    chef_1: 'src/assets/Chef1.jpg', 
+    chef_2: 'src/assets/Chef2.jpg',
+    chef_3: 'src/assets/Chef3.jpg', 
+    chef_4: 'src/assets/Chef4.jpg', 
+    chef_5: 'src/assets/Chef5.jpg',
+    chef_6: 'src/assets/Chef6.jpg',
+    chef_7: 'src/assets/Chef7.jpg', 
+    chef_8: 'src/assets/Chef8.jpg', 
+
+
+    staff_1: 'src/assets/Staff1.jpg', 
+    staff_2: 'src/assets/Staff2.jpg', 
+    staff_3: 'src/assets/Staff3.jpg', 
+    staff_4: 'src/assets/Staff4.jpg', 
+    staff_5: 'src/assets/Staff5.jpg', 
+    staff_6: 'src/assets/Staff6.jpg', 
+    staff_7: 'src/assets/Staff7.jpg', 
+    staff_8: 'src/assets/Staff8.jpg', 
+    staff_9: 'src/assets/Staff9.jpg', 
+    staff_10: 'src/assets/Staff10.jpg', 
+    staff_11: 'src/assets/Staff11.jpg', 
+    staff_12: 'src/assets/Staff12.jpg',    
+
+    bartender: 'src/assets/Bartender.jpeg', 
+    beverage: 'src/assets/Beverage.jpeg', 
+    customer: 'src/assets/Customer.jpeg', 
+    guest: 'src/assets/Guest.jpeg', 
+    head: 'src/assets/Head.jpeg', 
+    hospitality: 'src/assets/Hospitality.jpeg', 
+    inventory: 'src/assets/Inventory.jpeg', 
+    kitchen: 'src/assets/Kitchen.jpeg', 
+    quality: 'src/assets/Quality.jpeg', 
+    reservation: 'src/assets/Reservation.jpeg', 
+    sustainability: 'src/assets/Sustainability.jpeg',
+    events: 'src/assets/Events.jpeg',
+
+
+    restaurant: 'src/assets/Restaurant.jpg',
+
+    map: '/src/assets/Maps.png',
+    whatsapp: '/src/assets/Whatsapp.png',
+    mail: 'src/assets/Mail.png',
 }
 
 const filter_list = [
@@ -542,7 +585,7 @@ const menu_list = [
         _id:"aaabx",
         name: "Smores Delight",
         description: "A layered dessert of melted chocolate, marshmallow, and graham cracker crumbles for a nostalgic treat.",
-        price: 75000,
+        price: 30000,
         image: '/src/assets/Des_10.png',
         category: "Dessert",
         date: 1716622345448,

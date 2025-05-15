@@ -11,7 +11,7 @@ const Recommendation = () => {
   useEffect(()=>{
     const bestMenu = menu_list.filter((item)=>(item.bestseller));
     setReccomendation(bestMenu.slice(0,12));
-  },[])
+  },[menu_list])
 
   return (
     <div className='recommendation'>

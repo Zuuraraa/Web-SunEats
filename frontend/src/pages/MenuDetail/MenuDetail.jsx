@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { FoodContext } from "../../context/FoodContext";
+import { CartContext } from "../../context/CartContext"; // ⬅️ Tambahkan ini
 import "./MenuDetail.css";
 
 const MenuDetail = () => {
   const { MenuId } = useParams();
   const { menu_list } = useContext(FoodContext);
+  const { addToCart } = useContext(CartContext); // ⬅️ Ambil fungsi addToCart
   const [foodDetail, setFoodDetail] = useState(null);
 
   useEffect(() => {
@@ -16,6 +18,15 @@ const MenuDetail = () => {
   }, [MenuId, menu_list]);
 
   if (!foodDetail) return <p>Loading...</p>;
+
+  const handleAddToCart = () => {
+    addToCart({
+      _id: foodDetail._id,
+      name: foodDetail.name,
+      image: foodDetail.image,
+      price: foodDetail.price,
+    });
+  };
 
   return (
     <div className="menu-detail-container">
@@ -31,7 +42,9 @@ const MenuDetail = () => {
         <p className="food-price">IDR {foodDetail.price}</p>
 
         {/* Tombol Tambah ke Keranjang */}
-        <button className="add-to-cart">Add to Cart</button>
+        <button className="add-to-cart" onClick={handleAddToCart}>
+          Add to Cart
+        </button>
       </div>
     </div>
   );

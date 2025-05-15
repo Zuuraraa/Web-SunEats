@@ -11,6 +11,7 @@ import Contact from './pages/Contact/Contact'
 import Profile from './pages/Profile/Profile'
 import MenuDetail from './pages/MenuDetail/MenuDetail'
 import MyOrder from './pages/MyOrder/MyOrder'
+import PlaceOrder from './pages/PlaceOrder/PlaceOrder'
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
           <Route path='/Contact' element={<Contact/>}/>
           <Route path='/Profile' element={<Profile/>}/>
           <Route path='/Menu/:MenuId' element={<MenuDetail/>}/>
+          <Route path='/PlaceOrder' element={<PlaceOrder/>}/>
         </Routes>
       </div>
       <Footer/>

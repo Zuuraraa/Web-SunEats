@@ -1,0 +1,49 @@
+.list {
+    width: 100%;
+    padding: 0 150px; /* Jarak kiri-kanan agar tidak mentok ke sisi layar */
+    box-sizing: border-box;
+  }
+  
+  .list p:first-child {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    margin-top: 50px;
+    font-family: sans-serif;
+  }
+  
+  .list-table {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .list-table-format {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1.5fr 1fr 0.5fr;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f67828;
+    font-size: 16px;
+    width: 100%;
+  }
+  
+  .list-table-format.title {
+    border-bottom: 2px solid #f67828;
+    padding-bottom: 12px;
+  }
+  
+  .list-table-format img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  .cursor{
+    cursor: pointer;
+  }
+  
