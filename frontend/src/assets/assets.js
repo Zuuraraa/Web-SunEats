@@ -57,6 +57,9 @@ const assets = {
     map: '/src/assets/Maps.png',
     whatsapp: '/src/assets/Whatsapp.png',
     mail: 'src/assets/Mail.png',
+
+    gopay: 'src/assets/gopay.png',
+    qris: 'src/assets/qris.png',
 }
 
 const filter_list = [

@@ -10,6 +10,7 @@
     font-size: 36px;
     font-family: 'Poppins', sans-serif;
     text-align: center;
+    margin-top: 25px;
     margin-bottom: 30px;
 }
   
@@ -137,6 +138,7 @@ table {
     width: 200px;
     padding: 10px 0;
     margin: 20px auto;
+    margin-bottom: 50px;
     background: #f4a261;
     color: white;
     font-size: 20px;

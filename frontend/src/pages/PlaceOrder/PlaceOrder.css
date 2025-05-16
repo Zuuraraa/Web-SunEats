@@ -28,7 +28,7 @@
 .place-order-left input{
     margin-bottom: 15px;
     width: 100%;
-    padding: 10px;
+    padding: 15px;
     border: 1px solid #f67828;
     border-radius: 5px;
     outline-color: tomato;
@@ -36,5 +36,46 @@
 
 .place-order .checkout-btn {
     margin-top: -50px; 
-  }
+    margin-bottom: 70px;
+}
+
+.payment-method {
+    margin-top: 70px;
+}
+
+.payment-title {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.payment-options {
+    display: flex;
+    gap: 45px;
+    align-items: center;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 10px;
+}
+
+.payment-option input[type="radio"] {
+    accent-color: #f67828;
+    width: 20px;
+    height: 20px;
+}
+
+.payment-option img {
+    width: 110px;
+    height: auto;
+}
+
+.payment-option p{
+    font-size: 20px;
+    font-weight: 600;
+    height: auto;
+}
+
   

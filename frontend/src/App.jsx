@@ -12,11 +12,17 @@ import Profile from './pages/Profile/Profile'
 import MenuDetail from './pages/MenuDetail/MenuDetail'
 import MyOrder from './pages/MyOrder/MyOrder'
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder'
+import Login from './pages/Login/Login'
+import SignUp from './pages/SignUp/SignUp'
+
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   return (
     <>
       <div className='app'>
+        <ToastContainer/>
         <Navbar/>
         <Routes>
           <Route path='/' element={<Home/>}/>
@@ -29,6 +35,8 @@ const App = () => {
           <Route path='/Profile' element={<Profile/>}/>
           <Route path='/Menu/:MenuId' element={<MenuDetail/>}/>
           <Route path='/PlaceOrder' element={<PlaceOrder/>}/>
+          <Route path='/Login' element={<Login/>}/>
+          <Route path='/SignUp' element={<SignUp/>}/>
         </Routes>
       </div>
       <Footer/>
