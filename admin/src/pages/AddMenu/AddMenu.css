@@ -79,4 +79,27 @@
   .add-btn:hover {
     background-color: #e56b1e;
   }
+
+  .add-best-seller {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  gap: 10px;
+  font-size: 16px;
+}
+
+.add-best-seller input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #ff914d;
+  cursor: pointer;
+}
+
+.add-best-seller label {
+  cursor: pointer;
+  user-select: none;
+  font-weight: 500;
+  color: #333;
+}
+
   

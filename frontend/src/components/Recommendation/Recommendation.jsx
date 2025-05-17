@@ -8,10 +8,13 @@ const Recommendation = () => {
   const {menu_list} = useContext(FoodContext);
   const [reccomendation, setReccomendation] = useState([]);
 
-  useEffect(()=>{
-    const bestMenu = menu_list.filter((item)=>(item.bestseller));
-    setReccomendation(bestMenu.slice(0,12));
-  },[menu_list])
+  useEffect(() => {
+    if (menu_list && Array.isArray(menu_list) && menu_list.length > 0) {
+      const bestMenu = menu_list.filter(item => item.bestseller);
+      setReccomendation(bestMenu.slice(0, 12));
+    }
+  }, [menu_list]);
+
 
   return (
     <div className='recommendation'>

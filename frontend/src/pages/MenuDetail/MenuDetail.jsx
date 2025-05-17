@@ -2,12 +2,12 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { FoodContext } from "../../context/FoodContext";
 import { CartContext } from "../../context/CartContext";
-import { toast } from "react-toastify"; // ✅ Import Toastify
+import { toast } from "react-toastify";
 import "./MenuDetail.css";
 
 const MenuDetail = () => {
   const { MenuId } = useParams();
-  const { menu_list } = useContext(FoodContext);
+  const { menu_list , url } = useContext(FoodContext);
   const { addToCart } = useContext(CartContext);
   const [foodDetail, setFoodDetail] = useState(null);
 
@@ -33,7 +33,7 @@ const MenuDetail = () => {
   return (
     <div className="menu-detail-container">
       <div className="food-image">
-        <img src={foodDetail.image} alt={foodDetail.name} />
+        <img src={`${url}/images/${foodDetail.image}`} alt={foodDetail.name} />
       </div>
 
       <div className="food-info">

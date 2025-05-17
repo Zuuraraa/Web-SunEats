@@ -3,6 +3,7 @@ import './AddMenu.css'
 import { assets } from '../../assets/assets';
 import axios from "axios"
 import { toast } from 'react-toastify';
+import { backendUrl } from '../../App';
 
 const AddMenu = ({url}) => {
 
@@ -11,14 +12,16 @@ const AddMenu = ({url}) => {
     name:"",
     description:"",
     price:"",
-    category:"Appetizer"
+    category:"Appetizer",
+    bestseller: false
   })
 
   const onChangeHandler = (event) => {
     const name = event.target.name;
-    const value = event.target.value;
-    setData(data=>({...data,[name]:value}))
+    const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
+    setData(data => ({ ...data, [name]: value }));
   }
+
 
 
   const onSubmitHandler = async (event) => {
@@ -29,13 +32,18 @@ const AddMenu = ({url}) => {
     formData.append("price", Number(data.price))
     formData.append("category", data.category)
     formData.append("image",image)
-    const response = await axios.post(`${url}/api/food/add`,formData);
+    formData.append("bestseller", data.bestseller)
+    
+    const response = await axios.post(backendUrl + "/api/food/add",formData);
+    console.log(response.data);
+    
     if (response.data.success) {
       setData({
         name:"",
         description:"",
         price:"",
-        category:"Appetizer"
+        category:"Appetizer",
+        bestseller: false
       })
       setImage(false);
       toast.success(response.data.message)
@@ -67,13 +75,13 @@ const AddMenu = ({url}) => {
 
         <div className="add-product-description flex-col">
           <p>Menu Description</p>
-          <textarea onChange={onChangeHandler} value={data.description} name="description" rows="6" placeholder='Write menu description here'></textarea>
+          <textarea onChange={onChangeHandler} value={data.description} name="description" rows="4" placeholder='Write menu description here'></textarea>
         </div>
 
         <div className="add-category-price">
           <div className="add-category flex-col">
             <p>Menu Category</p>
-            <select onChange={onChangeHandler} name="category">
+            <select onChange={onChangeHandler} name="category" value={data.category}>
               <option value="Appetizer">Appetizer</option>
               <option value="Beef">Beef</option>
               <option value="Chicken">Chicken</option>
@@ -85,8 +93,18 @@ const AddMenu = ({url}) => {
 
           <div className="add-price flex-col">
             <p>Product Price</p>
-            <input onChange={onChangeHandler} value={data.price} type="Number" name='price' placeholder='35000' />
+            <input onChange={onChangeHandler} value={data.price || ""} type="Number" name='price' placeholder='35000' />
           </div>
+        </div>
+
+        <div className="add-best-seller flex-row">
+          <input
+            type="checkbox"
+            name="bestseller"
+            checked={data.bestseller}
+            onChange={onChangeHandler}
+          />
+          <label htmlFor="bestSeller">Mark as Best Seller</label>
         </div>
 
         <button type='submit' className='add-btn'>Add Menu</button>

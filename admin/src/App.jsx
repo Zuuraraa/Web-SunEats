@@ -8,25 +8,37 @@ import Footer from './components/Footer/Footer'
 import Profile from './pages/Profile/Profile'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-const App = () => {
+import { useState } from 'react'
+import Login from './components/Login/Login'
+import { useEffect } from 'react'
 
+export const backendUrl = import.meta.env.VITE_BACKEND_URL
+const App = () => {
+  const [token,setToken] = useState(localStorage.getItem('token') ? localStorage.getItem('token') : '');
   const url = "http://localhost:4000"
+
+  useEffect(()=>{
+    localStorage.setItem('token',token)
+  },[token])
 
   return (
     <>
-      <div>
-        <ToastContainer/>
-        <Navbar/>
-        <hr />
-        <Routes>
-          <Route path='/' element={<AddMenu url={url}/>}/>
-          <Route path='/MyMenu' element={<MyMenu url={url}/>}/>
-          <Route path='/MyOrder' element={<MyOrder url={url}/>}/>
-          <Route path='/Profile' element={<Profile/>}/>
-        </Routes>
-      </div>
+      {token === "" 
+        ? <Login setToken={setToken} /> 
+        : <>
+            <ToastContainer/>
+            <Navbar setToken={setToken}/>
+            <hr />
+            <Routes>
+              <Route path='/' element={<AddMenu token={token} url={url}/>}/>
+              <Route path='/MyMenu' element={<MyMenu token={token} url={url}/>}/>
+              <Route path='/MyOrder' element={<MyOrder token={token} url={url}/>}/>
+              <Route path='/Profile' element={<Profile/>}/>
+            </Routes>
+          </>
+      }
     </>
-  )
+  );
 }
 
 export default App

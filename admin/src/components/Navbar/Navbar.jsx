@@ -3,7 +3,7 @@ import './Navbar.css'
 import { assets } from '../../assets/assets'
 import { Link } from 'react-router-dom' // Tambahkan ini juga!
 
-const Navbar = () => {
+const Navbar = ({setToken}) => {
   const [activeMenu, setActiveMenu] = useState("AddMenu");
 
   return (
@@ -22,7 +22,7 @@ const Navbar = () => {
       </ul>
 
       <div className="navbar-proflie">
-          <Link to='/Profile'><img src={assets.user} alt="" /></Link>
+          <img onClick={()=>setToken('')} src={assets.logout} alt="" />
       </div>
     </div>
   )

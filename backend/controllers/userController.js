@@ -71,6 +71,25 @@ const registerUser = async (req,res) => {
     }
 }
 
+// admin login
+const adminLogin = async (req,res) => {
+    try {
+        
+        const {email,password} = req.body
+
+        if (email === process.env.ADMIN_EMAIL && password === process.env.ADMIN_PASSWORD) {
+            const token = jwt.sign(email+password, process.env.JWT_SECRET_ADMIN);
+            res.json({success:true,token})
+        } else {
+            res.json({success:false,message:"Invalid credentials"})
+        }
+
+    } catch (error) {
+        console.log(error);
+        res.json({success: false, message: error.message})
+    }
+}
+
 const getUserData = async (req, res) => {
   try {
     const user = await userModel.findById(req.userId).select('-password');
@@ -82,6 +101,6 @@ const getUserData = async (req, res) => {
   }
 };
 
-export {loginUser, registerUser, getUserData}
+export {loginUser, registerUser, getUserData, adminLogin}
 
 

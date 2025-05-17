@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export const FoodContext = createContext(null)
 
@@ -14,8 +15,17 @@ const FoodContextProvider = (props) => {
     }
 
     const fetchMenuList = async () => {
-        const response = await axios.get(url+"/api/food/list")
-        setMenuList(response.data.data)
+        try {
+            const response = await axios.get(url+"/api/food/list")
+            if (response.data.success) {
+                setMenuList(response.data.data)
+            } else {
+                toast.error(response.data.message)
+            }
+        } catch (error) {
+            console.log(error)
+            toast.error(error.message)
+        }
     }
 
     useEffect(()=>{

@@ -11,6 +11,7 @@ import {
   FaSignOutAlt,
   FaUserShield,
 } from 'react-icons/fa';
+import { toast } from "react-toastify";
 
 const Profile = () => {
   const isAdmin = true;
@@ -43,7 +44,10 @@ const Profile = () => {
     localStorage.removeItem("user");
     navigate("/login");
   };
-  const goToAdminPanel = () => alert('Masuk ke Admin Panel');
+  // const goToAdminPanel = () => alert('Masuk ke Admin Panel');
+  const goToAdminPanel = () => {
+    toast.success("Login to Admin Panel");
+  }
 
   const navigate = useNavigate();
 
@@ -139,7 +143,7 @@ useEffect(() => {
               value={profile.address}
               onChange={handleChange}
               disabled={!isEditing}
-              rows={3}
+              rows={2}
             />
           </div>
 

@@ -36,3 +36,8 @@
 .navbar-profile {
     position: relative;
 }
+
+img{
+    width: 25px;
+    cursor: pointer;
+}

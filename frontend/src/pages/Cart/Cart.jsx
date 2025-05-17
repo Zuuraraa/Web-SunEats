@@ -5,9 +5,12 @@ import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import { assets } from "../../assets/assets";
 import { useNavigate } from "react-router-dom";
+import { FoodContext } from "../../context/FoodContext";
 
 const Cart = () => {
   const { cartItems, addToCart, removeFromCart, updateQuantity } = useContext(CartContext);
+  
+  const { menu_list , url } = useContext(FoodContext);
 
   const deliveryFee = 20000; 
   const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -37,7 +40,7 @@ const Cart = () => {
           {cartItems.map((item) => (
             <tr key={item._id}>
             <td>
-              <img src={item.image} alt={item.name} className="cart-image" />
+              <img src={`${url}/images/${item.image}`} alt={item.name} className="cart-image" />
             </td>
             <td>{item.name}</td>
             <td>{item.price} IDR</td>
