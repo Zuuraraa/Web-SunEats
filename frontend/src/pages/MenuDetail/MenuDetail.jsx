@@ -20,15 +20,25 @@ const MenuDetail = () => {
 
   if (!foodDetail) return <p>Loading...</p>;
 
-  const handleAddToCart = () => {
-    addToCart({
-      _id: foodDetail._id,
-      name: foodDetail.name,
-      image: foodDetail.image,
-      price: foodDetail.price,
-    });
-    toast.success(`${foodDetail.name} Added To Cart!`); // ✅ Tampilkan toast
-  };
+const handleAddToCart = () => {
+  const token = localStorage.getItem("token");
+  const userId = localStorage.getItem("userId");
+
+  if (!token || !userId) {
+    toast.error("Please Login First");
+    return;
+  }
+
+  addToCart({
+    _id: foodDetail._id,
+    name: foodDetail.name,
+    image: foodDetail.image,
+    price: foodDetail.price,
+  });
+
+  toast.success(`${foodDetail.name} Added To Cart!`);
+};
+
 
   return (
     <div className="menu-detail-container">

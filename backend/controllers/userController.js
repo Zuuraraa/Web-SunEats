@@ -21,7 +21,7 @@ const loginUser = async (req,res) => {
         }
 
         const token = createToken(user._id);
-        res.json({ success: true, token, user: { name: user.name, email: user.email } });
+        res.json({ success: true, token, userId: user._id ,user: { name: user.name, email: user.email } });
 
     } catch (error) {
         console.log(error);
@@ -64,7 +64,7 @@ const registerUser = async (req,res) => {
 
         const user = await newUser.save()
         const token = createToken(user._id)
-        res.json({ success: true, token, user: { name: user.name, email: user.email } });
+        res.json({ success: true, token, userId: user._id ,user: { name: user.name, email: user.email } });
     } catch (error) {
         console.log(error);
         res.json({success:false,message:"Error"})

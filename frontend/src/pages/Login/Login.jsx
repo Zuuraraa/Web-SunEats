@@ -33,6 +33,7 @@ const handleSubmit = async (e) => {
 
     toast.success("Login successful!");
     localStorage.setItem("token", data.token);
+    localStorage.setItem("userId", data.userId);
     navigate("/");
   } catch (error) {
     toast.error("Login failed: " + error.message);
