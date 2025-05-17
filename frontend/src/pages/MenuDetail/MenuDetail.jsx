@@ -27,7 +27,7 @@ const MenuDetail = () => {
       image: foodDetail.image,
       price: foodDetail.price,
     });
-    toast.success(`${foodDetail.name} added to cart!`); // ✅ Tampilkan toast
+    toast.success(`${foodDetail.name} Added To Cart!`); // ✅ Tampilkan toast
   };
 
   return (

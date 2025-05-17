@@ -1,22 +1,33 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { CartContext } from "../../context/CartContext";
 import "./Cart.css";
-import Navbar from "../../components/Navbar/Navbar";
-import Footer from "../../components/Footer/Footer";
-import { assets } from "../../assets/assets";
 import { useNavigate } from "react-router-dom";
 import { FoodContext } from "../../context/FoodContext";
 
 const Cart = () => {
-  const { cartItems, addToCart, removeFromCart, updateQuantity } = useContext(CartContext);
-  
-  const { menu_list , url } = useContext(FoodContext);
+  const {
+    cartItems,
+    addToCart,
+    removeFromCart,
+    updateQuantity,
+    fetchCart,
+  } = useContext(CartContext);
 
-  const deliveryFee = 20000; 
-  const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const { url } = useContext(FoodContext);
+
+  const deliveryFee = 20000;
+  const subtotal = cartItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
   const total = subtotal + deliveryFee;
 
   const navigate = useNavigate();
+
+  // Fetch cart saat komponen mount
+  useEffect(() => {
+    fetchCart();
+  }, []);
 
   return (
     <div className="cart-container">
@@ -36,34 +47,48 @@ const Cart = () => {
               <th>Remove</th>
             </tr>
           </thead>
-            <tbody className="table-body">
-          {cartItems.map((item) => (
-            <tr key={item._id}>
-            <td>
-              <img src={`${url}/images/${item.image}`} alt={item.name} className="cart-image" />
-            </td>
-            <td>{item.name}</td>
-            <td>{item.price} IDR</td>
-            <td>
-              <input
-                type="number"
-                value={item.quantity}
-                min="1"
-                onChange={(e) => updateQuantity(item._id, parseInt(e.target.value))}
-                className="quantity-input"
-              />
-            </td>
-            <td>
-              <strong>{item.price * item.quantity} IDR</strong>
-            </td>
-            <td>
-              <button className="remove-btn" onClick={() => removeFromCart(item._id)}>
-                <img src={assets.trash} alt="Remove" className="trash-icon" />
-              </button>
-            </td>
-          </tr>
-          ))}
-        </tbody>
+          <tbody className="table-body">
+            {cartItems.map((item) => (
+              <tr key={item._id}>
+                <td>
+                  <img
+                    src={`${url}/images/${item.image}`}
+                    alt={item.name}
+                    className="cart-image"
+                  />
+                </td>
+                <td>{item.name}</td>
+                <td>{item.price} IDR</td>
+                <td>
+                 <input
+                    type="number"
+                    value={item.quantity}
+                    min="1"
+                    onChange={(e) => {
+                      const newQty = parseInt(e.target.value);
+                      console.log("Change qty for", item._id, "to", newQty);
+                      if (newQty >= 1) {
+                        updateQuantity(item._id, newQty);
+                      }
+                    }}
+                    className="quantity-input"
+                  />
+
+                </td>
+                <td>
+                  <strong>{item.price * item.quantity} IDR</strong>
+                </td>
+                <td>
+                  <button
+                    className="remove-btn"
+                    onClick={() => removeFromCart(item._id)}
+                  >
+                    X
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       )}
 
@@ -83,7 +108,9 @@ const Cart = () => {
         </div>
       </div>
 
-      <button className="checkout-btn" onClick={()=>navigate('/PlaceOrder')}>Checkout Now</button>
+      <button className="checkout-btn" onClick={() => navigate("/PlaceOrder")}>
+        Checkout Now
+      </button>
     </div>
   );
 };
