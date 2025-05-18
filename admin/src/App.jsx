@@ -4,8 +4,6 @@ import { Route, Routes } from 'react-router-dom'
 import AddMenu from './pages/AddMenu/AddMenu'
 import MyMenu from './pages/MyMenu/MyMenu'
 import MyOrder from './pages/MyOrder/MyOrder'
-import Footer from './components/Footer/Footer'
-import Profile from './pages/Profile/Profile'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react'
@@ -33,7 +31,6 @@ const App = () => {
               <Route path='/' element={<AddMenu token={token} url={url}/>}/>
               <Route path='/MyMenu' element={<MyMenu token={token} url={url}/>}/>
               <Route path='/MyOrder' element={<MyOrder token={token} url={url}/>}/>
-              <Route path='/Profile' element={<Profile/>}/>
             </Routes>
           </>
       }
