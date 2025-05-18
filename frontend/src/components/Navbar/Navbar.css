@@ -37,16 +37,6 @@
     position: relative;
 }
 
-.navbar-search .dot{
-    position: absolute;
-    min-width: 10px;
-    min-height: 10px;
-    background-color: #f67828;
-    border-radius: 5px;
-    top: -8px;
-    right: -8px;
-}
-
 .navbar-profile{
     position: relative;
 }

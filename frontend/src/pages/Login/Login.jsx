@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import { UserContext } from '../../context/userContext';
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import { toast } from "react-toastify";
+import { useContext } from "react";
 
 const Login = () => {
+  const { login } = useContext(UserContext);
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
@@ -32,8 +35,7 @@ const handleSubmit = async (e) => {
     }
 
     toast.success("Login successful!");
-    localStorage.setItem("token", data.token);
-    localStorage.setItem("userId", data.userId);
+    login(data.token, data.userId);
     navigate("/");
   } catch (error) {
     toast.error("Login failed: " + error.message);

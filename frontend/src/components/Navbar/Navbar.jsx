@@ -21,7 +21,6 @@ const Navbar = () => {
       <div className="navbar-right">
         <div className="navbar-search">
           <Link to='/Cart'><img src={assets.keranjang} alt="" /></Link>
-          <div className="dot"></div>
         </div>
 
         <div className="navbar-proflie">
