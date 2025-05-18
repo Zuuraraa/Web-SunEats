@@ -1,7 +1,7 @@
-import React, { useState } from 'react' // PENTING!
+import React, { useState } from 'react'
 import './Navbar.css'
 import { assets } from '../../assets/assets'
-import { Link } from 'react-router-dom' // Tambahkan ini juga!
+import { Link } from 'react-router-dom'
 
 const Navbar = ({setToken}) => {
   const [activeMenu, setActiveMenu] = useState("AddMenu");

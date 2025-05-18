@@ -1,6 +1,6 @@
 .list {
     width: 100%;
-    padding: 0 150px; /* Jarak kiri-kanan agar tidak mentok ke sisi layar */
+    padding: 0 150px;
     box-sizing: border-box;
   }
   
