@@ -1,55 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './MyOrder.css';
 
 const MyOrders = () => {
-  const [activeTab, setActiveTab] = useState('Semua');
+  const [activeTab, setActiveTab] = useState('All Orders');
   const [selectedOrder, setSelectedOrder] = useState(null);
+  const [orders, setOrders] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const orders = [
-    {
-      id: 1,
-      orderNumber: 'ORD-001',
-      status: 'Dikirim',
-      total: 125000,
-      address: 'Jl. Merdeka No. 10, Jakarta',
-      paymentMethod: 'Transfer Bank',
-      products: [
-        { name: 'Nasi Goreng Special', quantity: 2 },
-        { name: 'Ayam Bakar', quantity: 1 }
-      ]
-    },
-    {
-      id: 2,
-      orderNumber: 'ORD-002',
-      status: 'Diproses',
-      total: 75000,
-      address: 'Jl. Sudirman No. 88, Bandung',
-      paymentMethod: 'OVO',
-      products: [
-        { name: 'Burger Beef', quantity: 1 },
-        { name: 'French Fries', quantity: 2 }
-      ]
-    },
-    {
-      id: 3,
-      orderNumber: 'ORD-003',
-      status: 'Selesai',
-      total: 100000,
-      address: 'Jl. Gajah Mada No. 5, Surabaya',
-      paymentMethod: 'Gopay',
-      products: [
-        { name: 'Spaghetti Carbonara', quantity: 1 },
-        { name: 'Salad Buah', quantity: 1 }
-      ]
-    }
-  ];
+  const statusTabs = ['All Orders', 'Order Received', 'Food Processing', 'Order Complete','Out Of Stock'];
 
-  const statusTabs = ['Semua', 'Diproses', 'Dikirim', 'Selesai'];
-
-  const filteredOrders = activeTab === 'Semua'
+  const filteredOrders = activeTab === 'All Orders'
     ? orders
-    : orders.filter(order => order.status === activeTab);
+    : orders.filter(order => order.status.toLowerCase() === activeTab.toLowerCase());
 
   const formatRupiah = (angka) => {
     return new Intl.NumberFormat('id-ID', {
@@ -59,13 +22,29 @@ const MyOrders = () => {
   };
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 1000);
-    return () => clearTimeout(timer);
+    const fetchOrders = async () => {
+      try {
+        const token = localStorage.getItem('token'); 
+        const response = await axios.get('http://localhost:4000/api/order/my', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        setOrders(response.data.orders);
+      } catch (error) {
+        console.error('Error fetching orders:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchOrders();
   }, []);
 
   return (
     <div className="my-orders-container">
-      <h1 className="my-orders-title">Pesanan Saya</h1>
+      <h1 className="my-orders-title">My Delicious Meals</h1>
 
       <div className="tabs">
         {statusTabs.map(tab => (
@@ -84,60 +63,61 @@ const MyOrders = () => {
       ) : (
         <div className="orders-list">
           {filteredOrders.map(order => (
-            <div key={order.id} className="order-card">
+            <div key={order._id} className="order-card">
               <div className="order-header">
                 <div>
-                  <span className="order-number">#{order.orderNumber}</span>
-                  <span className={`status-badge ${order.status.toLowerCase()}`}>{order.status}</span>
+                  <span className="order-number">#{order._id.slice(-6).toUpperCase()}</span>
+                  <span className={`status-badge ${order.status.toLowerCase().replace(/\s+/g, '-')}`}>
+                    {order.status}
+                  </span>
                 </div>
               </div>
-              
+
               <div className="order-products">
-                {order.products.map((product, idx) => (
+                {order.items.map((item, idx) => (
                   <div key={idx} className="product-item">
-                    <div className="product-name">{product.name}</div>
-                    <div className="product-quantity">x{product.quantity}</div>
+                    <div className="product-name">{item.name}</div>
+                    <div className="product-quantity">x{item.quantity}</div>
                   </div>
                 ))}
               </div>
 
               <div className="order-footer">
-                <div className="total-text">Total Belanja:</div>
-                <div className="total-price">{formatRupiah(order.total)}</div>
+                <div className="total-text">Total Orders:</div>
+                <div className="total-price">{formatRupiah(order.amount)}</div>
               </div>
 
               <div className="order-actions">
-                <button className="detail-button" onClick={() => setSelectedOrder(order)}>Lihat Detail</button>
+                <button className="detail-button" onClick={() => setSelectedOrder(order)}>See Details</button>
               </div>
             </div>
           ))}
         </div>
       )}
 
-      
       {selectedOrder && (
         <div className="modal-overlay" onClick={() => setSelectedOrder(null)}>
           <div className="modal-content" onClick={e => e.stopPropagation()}>
-            <h2>Detail Pesanan</h2>
-            <p><strong>No Order:</strong> #{selectedOrder.orderNumber}</p>
+            <h2>Order Details</h2>
+            <p><strong>Order Id:</strong> #{selectedOrder._id}</p>
             <p><strong>Status:</strong> {selectedOrder.status}</p>
-            <p><strong>Alamat:</strong> {selectedOrder.address}</p>
-            <p><strong>Metode Pembayaran:</strong> {selectedOrder.paymentMethod}</p>
+            <p><strong>Address:</strong> {selectedOrder.address?.street}</p>
+            <p><strong>Payment Method:</strong> {selectedOrder.paymentMethod || '—'}</p>
 
             <div className="modal-products">
-              {selectedOrder.products.map((product, idx) => (
+              {selectedOrder.items.map((item, idx) => (
                 <div key={idx} className="product-item">
-                  <div className="product-name">{product.name}</div>
-                  <div className="product-quantity">x{product.quantity}</div>
+                  <div className="product-name">{item.name}</div>
+                  <div className="product-quantity">x{item.quantity}</div>
                 </div>
               ))}
             </div>
 
             <div className="modal-footer">
-              <strong>Total:</strong> {formatRupiah(selectedOrder.total)}
+              <strong>Total:</strong> {formatRupiah(selectedOrder.amount)}
             </div>
 
-            <button className="close-button" onClick={() => setSelectedOrder(null)}>Tutup</button>
+            <button className="close-button" onClick={() => setSelectedOrder(null)}>Close</button>
           </div>
         </div>
       )}
