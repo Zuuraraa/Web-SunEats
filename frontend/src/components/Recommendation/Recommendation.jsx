@@ -11,7 +11,7 @@ const Recommendation = () => {
   useEffect(() => {
     if (menu_list && Array.isArray(menu_list) && menu_list.length > 0) {
       const bestMenu = menu_list.filter(item => item.bestseller);
-      setReccomendation(bestMenu.slice(0, 12));
+      setReccomendation(bestMenu.slice(0, 30));
     }
   }, [menu_list]);
 
