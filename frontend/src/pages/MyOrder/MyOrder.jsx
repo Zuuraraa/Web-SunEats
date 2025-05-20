@@ -25,7 +25,7 @@ const MyOrders = () => {
     const fetchOrders = async () => {
       try {
         const token = localStorage.getItem('token'); 
-        const response = await axios.get('http://localhost:4000/api/order/my', {
+        const response = await axios.get('https://web-suneats-backend.onrender.com/api/order/my', {
           headers: {
             Authorization: `Bearer ${token}`,
           },

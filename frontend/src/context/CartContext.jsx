@@ -22,7 +22,7 @@ export const CartProvider = ({ children }) => {
   const fetchCart = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:4000/api/cart/get",
+        "https://web-suneats-backend.onrender.com/api/cart/get",
         {},
         { headers: getHeaders() }
       );
@@ -51,7 +51,7 @@ export const CartProvider = ({ children }) => {
   const addToCart = async (item) => {
     try {
       await axios.post(
-        "http://localhost:4000/api/cart/add",
+        "https://web-suneats-backend.onrender.com/api/cart/add",
         { itemId: item._id },
         { headers: getHeaders() }
       );
@@ -78,7 +78,7 @@ export const CartProvider = ({ children }) => {
   const removeFromCart = async (_id) => {
     try {
       await axios.post(
-        "http://localhost:4000/api/cart/remove",
+        "https://web-suneats-backend.onrender.com/api/cart/remove",
         { itemId: _id },
         { headers: getHeaders() }
       );
@@ -93,7 +93,7 @@ export const CartProvider = ({ children }) => {
   const updateQuantity = async (_id, newQuantity) => {
     try {
       await axios.post(
-        "http://localhost:4000/api/cart/update",
+        "https://web-suneats-backend.onrender.com/api/cart/update",
         { itemId: _id, quantity: newQuantity },
         { headers: getHeaders() }
       );

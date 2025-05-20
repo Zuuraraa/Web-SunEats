@@ -6,7 +6,7 @@ export const FoodContext = createContext(null)
 
 const FoodContextProvider = (props) => {
     const [menu_list,setMenuList] = useState([])
-    const url = "http://localhost:4000";
+    const url = "https://web-suneats-backend.onrender.com";
     const [token,setToken] = useState("");
 
     const contextValue = {

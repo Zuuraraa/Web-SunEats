@@ -42,7 +42,7 @@ const PlaceOrder = () => {
 
   try {
     const response = await axios.post(
-      "http://localhost:4000/api/order/place",
+      "https://web-suneats-backend.onrender.com/api/order/place",
       {
         userId: user.userId,
         items: cartItems,
