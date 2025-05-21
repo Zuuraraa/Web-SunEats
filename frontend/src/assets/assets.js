@@ -1,93 +1,154 @@
+// Logo dan User
+import logo_whitebg from './Logo_whitebg.png';
+import logo_orangebg from './Logo_orangebg.png';
+import logo_beigebg from './Logo_beige.png';
+import logo_browntext from './Logo_brown.png';
+import logo_admin from './Logo_admin.png';
+import logo_noBG from './Logo_noBG.png';
+import keranjang from './Keranjang.png';
+import search from './Search.png';
+import user from './User.png';
+import trash from './trash.png';
+
+// Icon sosmed
+import icon_facebook from './Icon_facebook.png';
+import icon_instagram from './Icon_instagram.png';
+import icon_tiktok from './Icon_tiktok.png';
+
+// Chef
+import chef_1 from './Chef1.jpg';
+import chef_2 from './Chef2.jpg';
+import chef_3 from './Chef3.jpg';
+import chef_4 from './Chef4.jpg';
+import chef_5 from './Chef5.jpg';
+import chef_6 from './Chef6.jpg';
+import chef_7 from './Chef7.jpg';
+import chef_8 from './Chef8.jpg';
+
+// Staff
+import staff_1 from './Staff1.jpg';
+import staff_2 from './Staff2.jpg';
+import staff_3 from './Staff3.jpg';
+import staff_4 from './Staff4.jpg';
+import staff_5 from './Staff5.jpg';
+import staff_6 from './Staff6.jpg';
+import staff_7 from './Staff7.jpg';
+import staff_8 from './Staff8.jpg';
+import staff_9 from './Staff9.jpg';
+import staff_10 from './Staff10.jpg';
+import staff_11 from './Staff11.jpg';
+import staff_12 from './Staff12.jpg';
+
+// Department
+import bartender from './Bartender.jpeg';
+import beverage from './Beverage.jpeg';
+import customer from './Customer.jpeg';
+import guest from './Guest.jpeg';
+import head from './Head.jpeg';
+import hospitality from './Hospitality.jpeg';
+import inventory from './Inventory.jpeg';
+import kitchen from './Kitchen.jpeg';
+import quality from './Quality.jpeg';
+import reservation from './Reservation.jpeg';
+import sustainability from './Sustainability.jpeg';
+import events from './Events.jpeg';
+
+// Other
+import restaurant from './Restaurant.jpg';
+import map from './Maps.png';
+import whatsapp from './Whatsapp.png';
+import mail from './Mail.png';
+import gopay from './gopay.png';
+import qris from './qris.png';
+
+// Filter menu
+import filter_appetizer from './filter_appetizer.png';
+import filter_chicken from './filter_chicken.png';
+import filter_beef from './filter_beef.png';
+import filter_seafood from './filter_seafood.png';
+import filter_dessert from './filter_dessert.png';
+import filter_drink from './filter_drink.png';
+
 const assets = {
-    logo_whitebg: '/src/assets/Logo_whitebg.png',
-    logo_orangebg: '/src/assets/Logo_orangebg.png',
-    logo_beigebg: '/src/assets/Logo_beige.png',
-    logo_browntext: '/src/assets/Logo_brown.png',
-    logo_admin: '/src/assets/Logo_admin.png',
-    logo_noBG: '/src/assets/Logo_noBG.png',
-    
-    keranjang: '/src/assets/Keranjang.png',
-    search: '/src/assets/Search.png',
-    user: '/src/assets/User.png',
-    trash: '/src/assets/trash.png',
-
-    icon_facebook: '/src/assets/Icon_facebook.png',
-    icon_instagram: '/src/assets/Icon_instagram.png',
-    icon_tiktok: '/src/assets/Icon_tiktok.png',
-
-    chef_1: 'src/assets/Chef1.jpg', 
-    chef_2: 'src/assets/Chef2.jpg',
-    chef_3: 'src/assets/Chef3.jpg', 
-    chef_4: 'src/assets/Chef4.jpg', 
-    chef_5: 'src/assets/Chef5.jpg',
-    chef_6: 'src/assets/Chef6.jpg',
-    chef_7: 'src/assets/Chef7.jpg', 
-    chef_8: 'src/assets/Chef8.jpg', 
-
-
-    staff_1: 'src/assets/Staff1.jpg', 
-    staff_2: 'src/assets/Staff2.jpg', 
-    staff_3: 'src/assets/Staff3.jpg', 
-    staff_4: 'src/assets/Staff4.jpg', 
-    staff_5: 'src/assets/Staff5.jpg', 
-    staff_6: 'src/assets/Staff6.jpg', 
-    staff_7: 'src/assets/Staff7.jpg', 
-    staff_8: 'src/assets/Staff8.jpg', 
-    staff_9: 'src/assets/Staff9.jpg', 
-    staff_10: 'src/assets/Staff10.jpg', 
-    staff_11: 'src/assets/Staff11.jpg', 
-    staff_12: 'src/assets/Staff12.jpg',    
-
-    bartender: 'src/assets/Bartender.jpeg', 
-    beverage: 'src/assets/Beverage.jpeg', 
-    customer: 'src/assets/Customer.jpeg', 
-    guest: 'src/assets/Guest.jpeg', 
-    head: 'src/assets/Head.jpeg', 
-    hospitality: 'src/assets/Hospitality.jpeg', 
-    inventory: 'src/assets/Inventory.jpeg', 
-    kitchen: 'src/assets/Kitchen.jpeg', 
-    quality: 'src/assets/Quality.jpeg', 
-    reservation: 'src/assets/Reservation.jpeg', 
-    sustainability: 'src/assets/Sustainability.jpeg',
-    events: 'src/assets/Events.jpeg',
-
-
-    restaurant: 'src/assets/Restaurant.jpg',
-
-    map: '/src/assets/Maps.png',
-    whatsapp: '/src/assets/Whatsapp.png',
-    mail: 'src/assets/Mail.png',
-
-    gopay: 'src/assets/gopay.png',
-    qris: 'src/assets/qris.png',
-}
+  logo_whitebg,
+  logo_orangebg,
+  logo_beigebg,
+  logo_browntext,
+  logo_admin,
+  logo_noBG,
+  keranjang,
+  search,
+  user,
+  trash,
+  icon_facebook,
+  icon_instagram,
+  icon_tiktok,
+  chef_1,
+  chef_2,
+  chef_3,
+  chef_4,
+  chef_5,
+  chef_6,
+  chef_7,
+  chef_8,
+  staff_1,
+  staff_2,
+  staff_3,
+  staff_4,
+  staff_5,
+  staff_6,
+  staff_7,
+  staff_8,
+  staff_9,
+  staff_10,
+  staff_11,
+  staff_12,
+  bartender,
+  beverage,
+  customer,
+  guest,
+  head,
+  hospitality,
+  inventory,
+  kitchen,
+  quality,
+  reservation,
+  sustainability,
+  events,
+  restaurant,
+  map,
+  whatsapp,
+  mail,
+  gopay,
+  qris
+};
 
 const filter_list = [
-    {
-        filter_name: "Appetizer",
-        filter_image: '/src/assets/filter_appetizer.png'
-    },
-    {
-        filter_name: "Chicken",
-        filter_image: '/src/assets/filter_chicken.png'
-    },
-    {
-        filter_name: "Beef",
-        filter_image: '/src/assets/filter_beef.png'
-    },
-    {
-        filter_name: "Seafood",
-        filter_image: '/src/assets/filter_seafood.png'
-    },
-    {
-        filter_name: "Dessert",
-        filter_image: '/src/assets/filter_dessert.png'
-    },
-    {
-        filter_name: "Drink",
-        filter_image: '/src/assets/filter_drink.png'
-    }
-]
+  {
+    filter_name: 'Appetizer',
+    filter_image: filter_appetizer
+  },
+  {
+    filter_name: 'Chicken',
+    filter_image: filter_chicken
+  },
+  {
+    filter_name: 'Beef',
+    filter_image: filter_beef
+  },
+  {
+    filter_name: 'Seafood',
+    filter_image: filter_seafood
+  },
+  {
+    filter_name: 'Dessert',
+    filter_image: filter_dessert
+  },
+  {
+    filter_name: 'Drink',
+    filter_image: filter_drink
+  }
+];
 
 const menu_list = [
     {
@@ -697,6 +758,5 @@ const menu_list = [
     },
 ]
 
-export {filter_list};
-export {assets};
 export {menu_list};
+export { assets, filter_list };
