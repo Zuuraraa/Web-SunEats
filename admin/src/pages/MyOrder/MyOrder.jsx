@@ -12,7 +12,7 @@ const MyOrder = () => {
 
   const fetchOrders = async () => {
     try {
-      const res = await axios.get("http://localhost:4000/api/order/all");
+      const res = await axios.get("https://web-suneats-backend.onrender.com/api/order/all");
       setOrders(res.data.orders);
     } catch (err) {
       console.error("Failed to fetch orders", err);
@@ -21,7 +21,7 @@ const MyOrder = () => {
 
   const handleStatusChange = async (orderId, newStatus) => {
     try {
-      await axios.post("http://localhost:4000/api/order/update", {
+      await axios.post("https://web-suneats-backend.onrender.com/api/order/update", {
         orderId,
         status: newStatus,
       });

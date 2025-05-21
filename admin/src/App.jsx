@@ -13,7 +13,7 @@ import { useEffect } from 'react'
 export const backendUrl = import.meta.env.VITE_BACKEND_URL
 const App = () => {
   const [token,setToken] = useState(localStorage.getItem('token') ? localStorage.getItem('token') : '');
-  const url = "http://localhost:4000"
+  const url = "https://web-suneats-backend.onrender.com"
 
   useEffect(()=>{
     localStorage.setItem('token',token)
